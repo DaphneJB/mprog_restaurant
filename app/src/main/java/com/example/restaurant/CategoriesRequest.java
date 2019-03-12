@@ -32,11 +32,13 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
     @Override
     public void onResponse(JSONObject response) {
         try {
+            cat = new ArrayList<>();
             category = response.getJSONArray("categories");
             for(int i = 0; i < category.length(); i++) {
                 cat.add(category.getString(i));
             }
             activity.gotCategories(cat);
+            System.out.println("oke2 " + cat.size());
         } catch (JSONException e) {
             e.printStackTrace();
         }
