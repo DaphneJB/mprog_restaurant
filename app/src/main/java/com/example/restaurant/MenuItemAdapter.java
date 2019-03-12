@@ -21,12 +21,10 @@ public class MenuItemAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_categories, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
-//        ImageView view = convertView.findViewById(R.id.profile);
-//        view.setImageResource(friends.get(position).getDrawableId()); //sets the profile pic of the friend
-//        TextView textV = convertView.findViewById(R.id.text); //sets the name of the friend
-//        textV.setText(friends.get(position).getName());
+        TextView text = convertView.findViewById(R.id.categories);
+        text.setText(menu.get(position));
         return convertView;
 
     }
