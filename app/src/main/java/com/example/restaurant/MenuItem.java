@@ -1,7 +1,9 @@
 package com.example.restaurant;
 
-public class MenuItem {
-    private String description, name, imageUrl, category, price;
+import java.io.Serializable;
+
+public class MenuItem implements Serializable {
+    private String description, name, imageUrl, price;
 
     public MenuItem(String description, String name, String imageUrl, String category, String price) {
         this.description = description;
@@ -20,10 +22,6 @@ public class MenuItem {
 
     public String getImageUrl() {
         return imageUrl;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public String getPrice() {
