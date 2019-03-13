@@ -1,10 +1,9 @@
 package com.example.restaurant;
 
 public class MenuItem {
-    private String description, name, imageUrl, category;
-    private double price;
+    private String description, name, imageUrl, category, price;
 
-    public MenuItem(String description, String name, String imageUrl, String category, double price) {
+    public MenuItem(String description, String name, String imageUrl, String category, String price) {
         this.description = description;
         this.name = name;
         this.imageUrl = imageUrl;
@@ -27,7 +26,7 @@ public class MenuItem {
         return category;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 

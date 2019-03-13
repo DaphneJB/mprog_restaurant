@@ -11,11 +11,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MenuItemAdapter extends ArrayAdapter<String> {
-    private ArrayList<String> menu;
+    private ArrayList<String> category;
 
     public MenuItemAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
-         menu = objects;
+         category = objects;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class MenuItemAdapter extends ArrayAdapter<String> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
         TextView text = convertView.findViewById(R.id.categories);
-        text.setText(menu.get(position));
+        text.setText(category.get(position));
         return convertView;
 
     }

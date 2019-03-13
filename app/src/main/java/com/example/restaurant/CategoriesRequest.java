@@ -38,7 +38,6 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
                 cat.add(category.getString(i));
             }
             activity.gotCategories(cat);
-            System.out.println("oke2 " + cat.size());
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -20,15 +20,17 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
     private Context context;
     private ArrayList<MenuItem> menu;
     private JSONArray category;
-    private CategoriesRequest.Callback activity;
+    private MenuRequest.Callback activity;
+    private String cat;
 
-    public MenuRequest(Context cont) {
+    public MenuRequest(Context cont, String cat) {
         context = cont;
+        this.cat = "?category=" + cat;
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        activity.gotCategoriesError(error.getMessage());
+        activity.gotMenuItemsError(error.getMessage());
     }
 
     @Override
@@ -40,9 +42,9 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
                 JSONObject item = category.getJSONObject(i);
                 menu.add(new MenuItem(item.getString("description"), item.getString("name"),
                         item.getString("image_url"), item.getString("category"),
-                        item.getDouble("price")));
+                        item.getString("price")));
             }
-            activity.gotCategories(menu);
+            activity.gotMenuItems(menu);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -50,14 +52,14 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
     }
 
     public interface Callback {
-        void gotCategories(ArrayList<MenuItem>categories);
-        void gotCategoriesError(String message);
+        void gotMenuItems(ArrayList<MenuItem>items);
+        void gotMenuItemsError(String message);
     }
 
-    public void getCategories(CategoriesRequest.Callback activity) {
+    public void getMenu(MenuRequest.Callback activity) {
         this.activity =activity;
         RequestQueue queue = Volley.newRequestQueue(context);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://resto.mprog.nl/menu", null, this, this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest("https://resto.mprog.nl/menu" + cat, null, this, this);
         queue.add(jsonObjectRequest);
     }
 }
