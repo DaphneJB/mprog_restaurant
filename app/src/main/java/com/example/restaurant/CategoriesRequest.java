@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
-
+//Get the food categories of the menu
 public class CategoriesRequest implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     private Context context;

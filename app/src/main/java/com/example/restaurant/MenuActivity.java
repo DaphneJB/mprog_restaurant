@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+//shows a list of dishes from a chosen category
 public class MenuActivity extends AppCompatActivity implements MenuRequest.Callback {
     private ListAdapter adapter;
 

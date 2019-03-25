@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+//This class gets the categories of the menu and shows it to the users
 public class CategoriesActivity extends AppCompatActivity implements CategoriesRequest.Callback {
     private ListAdapter adapter;
 
@@ -35,6 +35,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesR
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
+    //when clicked on a category, the user will get to see the dishes from that category
     private class ClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
