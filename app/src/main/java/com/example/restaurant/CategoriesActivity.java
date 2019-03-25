@@ -24,7 +24,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesR
 
     @Override
     public void gotCategories(ArrayList<String> categories) {
-        adapter = new MenuItemAdapter(this, R.layout.activity_categories, categories);
+        adapter = new CategoryAdapter(this, R.layout.activity_categories, categories);
         ListView view = findViewById(R.id.listview);
         view.setAdapter(adapter);
         view.setOnItemClickListener(new ClickListener());

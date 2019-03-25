@@ -16,7 +16,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MenuRequest implements Response.Listener<JSONObject>, Response.ErrorListener {
-
     private Context context;
     private ArrayList<MenuItem> menu;
     private JSONArray category;
@@ -33,6 +32,7 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
         activity.gotMenuItemsError(error.getMessage());
     }
 
+    //make an ArrayList of the JSONArray items
     @Override
     public void onResponse(JSONObject response) {
         try {
@@ -41,14 +41,12 @@ public class MenuRequest implements Response.Listener<JSONObject>, Response.Erro
             for(int i = 0; i < category.length(); i++) {
                 JSONObject item = category.getJSONObject(i);
                 menu.add(new MenuItem(item.getString("description"), item.getString("name"),
-                        item.getString("image_url"), item.getString("category"),
-                        item.getString("price")));
+                        item.getString("image_url"), item.getString("price")));
             }
             activity.gotMenuItems(menu);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public interface Callback {

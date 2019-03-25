@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-public class MenuItemAdapter extends ArrayAdapter<String> {
+//Represents an adapter that takes a list of categories of the menu and formats it to display
+public class CategoryAdapter extends ArrayAdapter<String> {
     private ArrayList<String> category;
 
-    public MenuItemAdapter(Context context, int resource, ArrayList<String> objects) {
+    public CategoryAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
          category = objects;
     }

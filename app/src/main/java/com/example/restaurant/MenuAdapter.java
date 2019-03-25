@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
+//Represents an adapter that takes a list of menu items and formats it to display
 public class MenuAdapter extends ArrayAdapter<MenuItem> {
     private ArrayList<MenuItem> menu;
 
@@ -25,15 +25,15 @@ public class MenuAdapter extends ArrayAdapter<MenuItem> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.menu_item, parent, false);
         }
+        //set name of dish
         TextView name = convertView.findViewById(R.id.name);
         name.setText(menu.get(position).getName());
-
+        //set price
         TextView price = convertView.findViewById(R.id.price);
         price.setText("€" + menu.get(position).getPrice());
-
+        //set image
         ImageView imageView = convertView.findViewById(R.id.image);
         Picasso.with(getContext()).load(menu.get(position).getImageUrl()).into(imageView);
         return convertView;
-
     }
 }

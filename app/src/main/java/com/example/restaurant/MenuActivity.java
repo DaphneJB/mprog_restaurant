@@ -11,7 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-//shows a list of dishes from a chosen category
+//this class shows a list of dishes from a chosen category
 public class MenuActivity extends AppCompatActivity implements MenuRequest.Callback {
     private ListAdapter adapter;
 
@@ -38,6 +38,7 @@ public class MenuActivity extends AppCompatActivity implements MenuRequest.Callb
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
+    //get details of the selected dish
     private class ClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -47,5 +48,4 @@ public class MenuActivity extends AppCompatActivity implements MenuRequest.Callb
             startActivity(intent);
         }
     }
-
 }

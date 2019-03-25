@@ -14,7 +14,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 //Get the food categories of the menu
 public class CategoriesRequest implements Response.Listener<JSONObject>, Response.ErrorListener {
-
     private Context context;
     private ArrayList<String>cat;
     private JSONArray category;
@@ -38,10 +37,10 @@ public class CategoriesRequest implements Response.Listener<JSONObject>, Respons
                 cat.add(category.getString(i));
             }
             activity.gotCategories(cat);
-        } catch (JSONException e) {
+        }
+        catch (JSONException e) {
             e.printStackTrace();
         }
-
     }
 
     public interface Callback {
